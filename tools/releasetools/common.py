@@ -2695,6 +2695,8 @@ class PasswordManager(object):
               output = ps.communicate()[0]
               if ps.returncode == 0:
                 current[i] = output
+              else:
+                logger.warning('Failed to get password for key "%s".', i)
             except Exception as e:
               print(e)
               pass
